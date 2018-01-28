@@ -1,0 +1,42 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">Filter By:</div>
+            <div class ="col-md-4"><input type="text"/></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">Filtered By:</div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="btn btn-success" (click)="toggleImage()">
+                                {{showImage? "Hide Image":"Show Image"}}
+                            </button>
+                        </th>
+                        <th>Product Name</th>
+                        <th>Code</th>
+                        <th>Available</th>
+                        <th>Price</th>
+                        <th>Star Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of orders">
+                        <td><img [src]=order.imageUrl  *ngIf="showImage"/></td>
+                        <td>{{order.productName}}</td>
+                        <td>{{order.productCode}}</td>
+                        <td>{{order.releaseDate}}</td>
+                        <td>{{order.price}}</td>
+                        <td>{{order.starRating}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

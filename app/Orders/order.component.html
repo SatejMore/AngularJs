@@ -5,12 +5,14 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-2">Filter By:</div>
-            <div class ="col-md-4"><input type="text"/></div>
+            <div class ="col-md-2"><input type="text" [(ngModel)] = "filterText"/></div>
+            <div class="col-md-4"><button class="btn btn-success" (click)="gridViewClicked()">Grid View</button></div>
+            <div class="col-md-4"><button class="btn btn-success" (click)="listViewClicked()">List View</button></div>
         </div>
         <div class="row">
-            <div class="col-md-6">Filtered By:</div>
+            <div class="col-md-4"><h3>Filtered By:{{filterText}}</h3></div>
         </div>
-        <div class="table-responsive">
+        <div class="table-responsive" *ngIf="displayGridView">
             <table class="table">
                 <thead>
                     <tr>
@@ -26,17 +28,27 @@
                         <th>Star Rating</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngFor="let order of orders">
-                        <td><img [src]=order.imageUrl  *ngIf="showImage"/></td>
-                        <td>{{order.productName}}</td>
-                        <td>{{order.productCode}}</td>
+                <tbody> 
+                    <tr *ngFor="let order of orders|orderFilter:filterText">
+                        <td><img [src]=order.imageUrl  *ngIf="showImage" [style.width.px]="imageWidth"/></td>
+                        <td>{{order.productName|uppercase}}</td>
+                        <td>{{order.productCode|lowercase}}</td>
                         <td>{{order.releaseDate}}</td>
-                        <td>{{order.price}}</td>
-                        <td>{{order.starRating}}</td>
+                        <td>{{order.price|currency:'GBP':true}}</td>
+                        <edu-star></edu-star>
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div *ngIf="displayListView">
+            <ul class="list-group" *ngFor="let order of orders">
+                <li class="list-group-item"><img [src]=order.imageurl [style.width.px]="imageWidth"></li>
+                <li class="list-group-item">{{order.productName}}</li>
+                <li class="list-group-item">{{order.productCode}}</li>
+                <li class="list-group-item">{{order.releaseDate}}</li>
+                <li class="list-group-item">{{order.price}}</li>
+                <li class="list-group-item">{{order.starRating}}</li>
+            </ul>
         </div>
     </div>
 </div>

@@ -10,6 +10,9 @@ var core_1 = require("@angular/core");
 var OrderComponent = /** @class */ (function () {
     function OrderComponent() {
         this.pageTitle = "*****Orders List********";
+        this.imageWidth = 50;
+        this.displayListView = false;
+        this.displayGridView = true;
         this.orders = [
             {
                 "productId": 1,
@@ -67,10 +70,23 @@ var OrderComponent = /** @class */ (function () {
     OrderComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;
     };
+    OrderComponent.prototype.ngOnInit = function () {
+        console.log("<<<<<<<<<<<<<< App Loaded >>>>>>>>>>>>>>>>");
+    };
+    OrderComponent.prototype.gridViewClicked = function () {
+        this.displayGridView = true;
+        this.displayListView = false;
+    };
+    OrderComponent.prototype.listViewClicked = function () {
+        this.displayListView = true;
+        this.displayGridView = false;
+    };
     OrderComponent = __decorate([
         core_1.Component({
             selector: 'order-dev',
-            templateUrl: 'app/Orders/order.component.html'
+            templateUrl: 'app/Orders/order.component.html',
+            //styles:['thead{color:blue;}','h3{color:green;}']
+            styleUrls: ['app/orders/order.component.css']
         })
     ], OrderComponent);
     return OrderComponent;

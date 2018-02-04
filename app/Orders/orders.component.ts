@@ -1,14 +1,21 @@
-import { Component } from '@angular/core'
+import { Component, OnInit, transition} from '@angular/core'
+import {IOrder} from './orders'
 
 @Component({
     selector : 'order-dev',
-    templateUrl : 'app/Orders/order.component.html'
+    templateUrl : 'app/Orders/order.component.html',
+    //styles:['thead{color:blue;}','h3{color:green;}']
+    styleUrls:['app/orders/order.component.css']
 })
 
-export class OrderComponent
+export class OrderComponent implements OnInit
 {
     pageTitle:string = "*****Orders List********";
-    orders:any[] = [
+    filterText:string;
+    imageWidth:number = 50;
+    displayListView:boolean = false;
+    displayGridView:boolean = true;
+    orders:IOrder[] = [
         {
             "productId": 1,
             "productName": "Leaf Rake",
@@ -65,4 +72,20 @@ export class OrderComponent
     toggleImage():void{
         this.showImage = !this.showImage;
     }
+
+    ngOnInit():void{
+        console.log("<<<<<<<<<<<<<< App Loaded >>>>>>>>>>>>>>>>");
+        
+    }
+
+    gridViewClicked():void{
+        this.displayGridView = true;
+        this.displayListView = false;
+    }
+
+    listViewClicked():void{
+        this.displayListView = true;
+        this.displayGridView = false;
+    }
+
 }

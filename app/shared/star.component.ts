@@ -1,4 +1,4 @@
-import {Component} from '@angular/core'
+import {Component,OnChanges,Input,Output,EventEmitter} from '@angular/core'
 
 @Component({
     selector:'edu-star',
@@ -6,6 +6,16 @@ import {Component} from '@angular/core'
     styleUrls:['app/shared/star.component.css']
 })
 
-export class starComponent{
-     
+export class starComponent implements OnChanges {
+    @Input() rating:number;
+    starWidth:number;
+
+    @Output() eventRaised:EventEmitter<string> = new EventEmitter<string>();
+    ngOnChanges():void{
+        this.starWidth = this.rating*86/5;
+    }
+
+    onClick():void{
+        this.eventRaised.emit(`The star rating is ${this.rating}`);
+    }
 }

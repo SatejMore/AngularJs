@@ -53,7 +53,7 @@ export class OrderComponent implements OnInit
             "releaseDate": "May 15, 2016",
             "description": "15-inch steel blade hand saw",
             "price": 11.55,
-            "starRating": 3.7,
+            "starRating": 3.5,
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png"
         },
         {
@@ -63,7 +63,7 @@ export class OrderComponent implements OnInit
             "releaseDate": "October 15, 2015",
             "description": "Standard two-button video game controller",
             "price": 35.95,
-            "starRating": 4.6,
+            "starRating": 4.8,
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
         }
     ];
@@ -88,4 +88,8 @@ export class OrderComponent implements OnInit
         this.displayGridView = false;
     }
 
+    onStarClicked(message:string):void
+    {
+        this.pageTitle = message;
+    }
 }

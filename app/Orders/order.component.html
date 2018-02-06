@@ -35,13 +35,13 @@
                         <td>{{order.productCode|lowercase}}</td>
                         <td>{{order.releaseDate}}</td>
                         <td>{{order.price|currency:'GBP':true}}</td>
-                        <edu-star></edu-star>
+                        <edu-star [rating]="order.starRating" (eventRaised)="onStarClicked($event)"></edu-star>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div *ngIf="displayListView">
-            <ul class="list-group" *ngFor="let order of orders">
+            <ul class="list-group" *ngFor="let order of orders|orderFilter:filterText">
                 <li class="list-group-item"><img [src]=order.imageurl [style.width.px]="imageWidth"></li>
                 <li class="list-group-item">{{order.productName}}</li>
                 <li class="list-group-item">{{order.productCode}}</li>

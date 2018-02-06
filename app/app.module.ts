@@ -7,11 +7,13 @@ import { RobotComponent } from './robot.component'
 import {OrderComponent} from './Orders/orders.component'
 import { OrderFilter } from './Orders/order-filter.pipe';
 import { starComponent } from './shared/star.component';
+import { OrderService } from './Orders/order.service';
 
 
 @NgModule({
     imports:[ BrowserModule,FormsModule ],
     declarations : [ AppComponent, RobotComponent, OrderComponent, OrderFilter, starComponent ],
+    providers:[OrderService],
     bootstrap: [ AppComponent ]
 })
 

@@ -42,12 +42,12 @@
         </div>
         <div *ngIf="displayListView">
             <ul class="list-group" *ngFor="let order of orders|orderFilter:filterText">
-                <li class="list-group-item"><img [src]=order.imageurl [style.width.px]="imageWidth"></li>
-                <li class="list-group-item">{{order.productName}}</li>
-                <li class="list-group-item">{{order.productCode}}</li>
-                <li class="list-group-item">{{order.releaseDate}}</li>
-                <li class="list-group-item">{{order.price}}</li>
-                <li class="list-group-item">{{order.starRating}}</li>
+                <li class="list-group-item"><img [src]="order.imageUrl" [style.width.px]="imageWidth"></li>
+                <li class="list-group-item"><h4><b>Product Name:</b> {{order.productName}}</h4></li>
+                <li class="list-group-item"><h4><b>Product Code:</b> {{order.productCode}}</h4></li>
+                <li class="list-group-item"><h4><b>Release Date:</b> {{order.releaseDate}}</h4></li>
+                <li class="list-group-item"><h4><b>Order Price: </b> {{order.price}}</h4></li>
+                <li class="list-group-item"><h4><b>Rating:</b> {{order.price}}</h4></li>
             </ul>
         </div>
     </div>

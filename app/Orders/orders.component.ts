@@ -18,7 +18,7 @@ export class OrderComponent implements OnInit
     displayGridView:boolean = true;
     orders:IOrder[];
     showImage:boolean = true;
-
+    errorMessage :string;
     constructor(private _orderService:OrderService){}
 
     toggleImage():void{
@@ -26,7 +26,8 @@ export class OrderComponent implements OnInit
     }
 
     ngOnInit():void{
-      this.orders = this._orderService.getProducts();
+       this._orderService.getProducts().subscribe(orders=>this.orders=orders, 
+        error=>this.errorMessage = <any>error)
     }
 
     gridViewClicked():void{

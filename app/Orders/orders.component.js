@@ -24,7 +24,8 @@ var OrderComponent = /** @class */ (function () {
         this.showImage = !this.showImage;
     };
     OrderComponent.prototype.ngOnInit = function () {
-        this.orders = this._orderService.getProducts();
+        var _this = this;
+        this._orderService.getProducts().subscribe(function (orders) { return _this.orders = orders; }, function (error) { return _this.errorMessage = error; });
     };
     OrderComponent.prototype.gridViewClicked = function () {
         this.displayGridView = true;

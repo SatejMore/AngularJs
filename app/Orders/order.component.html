@@ -31,7 +31,10 @@
                 <tbody> 
                     <tr *ngFor="let order of orders|orderFilter:filterText">
                         <td><img [src]=order.imageUrl  *ngIf="showImage" [style.width.px]="imageWidth"/></td>
-                        <td>{{order.productName|uppercase}}</td>
+                        <td><a [routerLink]="['/Orders',order.productId]"
+                            [queryParams]="{name:order.productName,
+                                imgurl:order.imageUrl,
+                                desc:order.description}">{{order.productName|uppercase}}</a></td>
                         <td>{{order.productCode|lowercase}}</td>
                         <td>{{order.releaseDate}}</td>
                         <td>{{order.price|currency:'GBP':true}}</td>
@@ -43,7 +46,8 @@
         <div *ngIf="displayListView">
             <ul class="list-group" *ngFor="let order of orders|orderFilter:filterText">
                 <li class="list-group-item"><img [src]="order.imageUrl" [style.width.px]="imageWidth"></li>
-                <li class="list-group-item"><h4><b>Product Name:</b> {{order.productName}}</h4></li>
+                <!-- <li class="list-group-item"><h4><b>Product Name:</b><a [routerLink]:"['\Orders',order.productId]">{{order.productName}}</a></h4></li> -->
+                <li class="list-group-item"><h4><b>Product Name:</b>{{order.productName}}</h4></li>
                 <li class="list-group-item"><h4><b>Product Code:</b> {{order.productCode}}</h4></li>
                 <li class="list-group-item"><h4><b>Release Date:</b> {{order.releaseDate}}</h4></li>
                 <li class="list-group-item"><h4><b>Order Price: </b> {{order.price}}</h4></li>

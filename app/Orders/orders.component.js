@@ -40,7 +40,6 @@ var OrderComponent = /** @class */ (function () {
     };
     OrderComponent = __decorate([
         core_1.Component({
-            selector: 'order-dev',
             templateUrl: 'app/Orders/order.component.html',
             //styles:['thead{color:blue;}','h3{color:green;}']
             styleUrls: ['app/orders/order.component.css']

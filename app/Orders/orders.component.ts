@@ -3,7 +3,6 @@ import {IOrder} from './orders'
 import { OrderService } from './order.service';
 
 @Component({
-    selector : 'order-dev',
     templateUrl : 'app/Orders/order.component.html',
     //styles:['thead{color:blue;}','h3{color:green;}']
     styleUrls:['app/orders/order.component.css']

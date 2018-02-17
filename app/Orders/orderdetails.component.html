@@ -1,0 +1,12 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <h1>This is order details page</h1>
+        <h1>{{orderName}}</h1>
+        <img [src]="orderImageUrl"/>
+        <h1>{{orderDescription}}</h1>
+        <button type="submit" class="btn btn-success" (click)="onBackBtnClick()">Back</button>
+    </div>
+</div>
